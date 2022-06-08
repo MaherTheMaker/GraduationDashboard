@@ -1,12 +1,11 @@
 package com.Maker.controller;
 
+import com.Maker.dao.ClinicDomainRepo;
 import com.Maker.dao.ClinicPlanRepository;
 import com.Maker.dao.ClinicRepo;
 import com.Maker.dao.PendingRequestRepo;
-import com.Maker.model.Clinic;
-import com.Maker.model.ClinicPlan;
-import com.Maker.model.PendingRequest;
-import com.Maker.model.Plan;
+import com.Maker.model.*;
+import com.Maker.service.ClinicDomainService;
 import com.Maker.service.ClinicPlansService;
 import com.Maker.service.clinicService;
 import org.apache.coyote.Response;
@@ -43,6 +42,9 @@ public class AdminAPI {
     @Autowired
     private PendingRequestRepo pendingRequestRepo;
 
+
+    @Autowired
+    private ClinicDomainService clinicDomainService;
 
 
     @GetMapping("/all")
@@ -93,6 +95,8 @@ public class AdminAPI {
     }
 
 
+
+
     @PostMapping("/CreateClinic")
     public ResponseEntity<Clinic> addClinic(@RequestBody Clinic clinic){
         return ResponseEntity.ok().body(clinicService.addClinic(clinic));
@@ -105,10 +109,20 @@ public class AdminAPI {
         return ResponseEntity.ok().body(clinicService.getClinic(username));
     }
 
+
+    @GetMapping("/addDomainToClinic/{username}")
+    public ResponseEntity<ClinicDomain> setDomain(@PathVariable String username,@RequestBody ClinicDomain clinicDomain)
+    {
+       Clinic clinic = clinicRepo.findByUsername(username);
+       clinicDomain.setClinic(clinic);
+       return ResponseEntity.ok().body(clinicDomainService.addDomain(clinicDomain));
+
+    }
+
     @GetMapping("/clinicDomain/{username}")
-    public ResponseEntity<String> getDomain(@PathVariable String username){
-        Clinic clinic = clinicRepo.findByUsername(username);
-        return ResponseEntity.ok().body(clinic.getClinicDomain());
+    public ResponseEntity<ClinicDomain> getDomain(@PathVariable String username){
+
+        return ResponseEntity.ok().body(clinicDomainService.getClinicDomain(username));
     }
 
 
