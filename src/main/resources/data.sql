@@ -1,0 +1,1 @@
+INSERT IGNORE INTO Dashboard.user (username,password) VALUES ('admin','$2a$10$tjl.FCUd8foavutoJXNRruNUi1F6AwVVmF6cB4Il1PwdpcFU5cAay');
