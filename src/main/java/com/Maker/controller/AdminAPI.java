@@ -1,22 +1,18 @@
 package com.Maker.controller;
-
-import com.Maker.dao.ClinicDomainRepo;
+import com.Maker.cmd_prompt.my_main;
 import com.Maker.dao.ClinicPlanRepository;
 import com.Maker.dao.ClinicRepo;
 import com.Maker.dao.PendingRequestRepo;
 import com.Maker.model.*;
-import com.Maker.service.ClinicDomainService;
 import com.Maker.service.ClinicPlansService;
 import com.Maker.service.clinicService;
-import org.apache.coyote.Response;
+import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.parameters.P;
 import org.springframework.web.bind.annotation.*;
-
-import java.lang.reflect.Array;
+import java.io.IOException;
 import java.util.*;
+
 
 @RestController
 @RequestMapping("/clinicPlan")
@@ -43,8 +39,7 @@ public class AdminAPI {
     private PendingRequestRepo pendingRequestRepo;
 
 
-    @Autowired
-    private ClinicDomainService clinicDomainService;
+
 
 
     @GetMapping("/all")
@@ -109,27 +104,36 @@ public class AdminAPI {
         return ResponseEntity.ok().body(clinicService.getClinic(username));
     }
 
+//
+//    @GetMapping("/setDomainOfClinic")
+//    public ResponseEntity<Clinic> setDomain(@PathVariable String username,@RequestBody DomainName domainName)
+//    {
+//
+//       return ResponseEntity.ok().body(clinicService.SetDomainName(username,domainName.domainName));
+//
+//    }
 
-    @GetMapping("/addDomainToClinic/{username}")
-    public ResponseEntity<ClinicDomain> setDomain(@PathVariable String username,@RequestBody ClinicDomain clinicDomain)
-    {
-       Clinic clinic = clinicRepo.findByUsername(username);
-       clinicDomain.setClinic(clinic);
-       return ResponseEntity.ok().body(clinicDomainService.addDomain(clinicDomain));
-
-    }
-
-    @GetMapping("/clinicDomain/{username}")
-    public ResponseEntity<ClinicDomain> getDomain(@PathVariable String username){
-
-        return ResponseEntity.ok().body(clinicDomainService.getClinicDomain(username));
-    }
-
+//    @GetMapping("/clinicDomain/{username}")
+//    public ResponseEntity<String> getDomain(@PathVariable String username){
+//
+//        return ResponseEntity.ok().body(clinicService.getClinic(username).getDomainName());
+//    }
 
 
     @GetMapping("/clinicPlansHistory/{username}")
     public ResponseEntity<List<ClinicPlan>> getPlansHistory(@PathVariable String username){
         return ResponseEntity.ok().body(clinicPlansService.getHistoryPlans(username));
     }
-    
+
+    @GetMapping("/Deploy/{username}")
+    public String Deploy(@PathVariable String username) throws IOException {
+        my_main.RunDeploy(username);
+        return "Done";
+    }
+
 }
+
+@Data
+class DomainName {
+    String domainName;
+        }

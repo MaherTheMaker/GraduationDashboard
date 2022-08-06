@@ -51,7 +51,9 @@ public class ClinicPlanImp implements ClinicPlansService {
             clinic.setActPlan(plan.getpName());
             pendingRequestRepo.deleteById(id);
             return clinicPlanRepository.save(new ClinicPlan(clinic,plan,plan.getpName(),clinic.getClinicName(),null,0 ,null));
+
         }
+
         else
             return null;
     }

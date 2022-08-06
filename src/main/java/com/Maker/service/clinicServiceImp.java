@@ -57,6 +57,18 @@ public class clinicServiceImp implements clinicService {
         return clinicRepo.findByUsername(name);
     }
 
+//    @Override
+//    public Clinic SetDomainName(String username, String domainName) {
+//        Clinic clinic = clinicRepo.findByUsername(username);
+//        if(clinic!=null)
+//        {
+//            clinic.setDomainName(domainName);
+//           return clinicRepo.save(clinic);
+//        }
+//       throw new RuntimeException(username + " not found");
+//    }
+//
+
     @Override
     public Plan getActPlan(String username) {
         Clinic clinic = clinicRepo.findByUsername(username);

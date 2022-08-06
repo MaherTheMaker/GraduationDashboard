@@ -14,8 +14,13 @@ public interface clinicService {
     Clinic addClinic(Clinic clinic);
     PendingRequest requestForPlan(String username,String pName);
     List<Clinic> getAllClinics();
+
     Clinic getClinic(String name);
+
+//    Clinic SetDomainName(String username, String domainName);
+
     Plan getActPlan(String username);
+
 
 
 }

@@ -17,17 +17,23 @@ public class Clinic
 
 	@Column(unique = true, length = 25)
 	private String username;
-
+	@Column(unique = false, length = 100)
 	private String clinicName;
-
 
 	private Date createDate;
 
 	private Date updateDate;
 
+	private String email;
+
+
 	private String mobilePhone;
 
+	@Column(length = 200)
 	private String clinicAddress;
+
+
+	private String domainName;
 
 
 	private String clinicPhone;
@@ -35,8 +41,7 @@ public class Clinic
 	private String actPlan;
 
 
-	@OneToOne(mappedBy = "clinic", cascade = CascadeType.ALL, orphanRemoval = true)
-	private ClinicDomain clinicDomain;
+
 
 
 
@@ -47,14 +52,16 @@ public class Clinic
 	{
 	}
 
-	public Clinic(String ownerName, String username, String clinicName, Date createDate, Date updateDate, String mobilePhone, String clinicAddress, String clinicPhone, String actPlan, List<ClinicPlan> clinicPlans) {
+	public Clinic(String ownerName, String username, String clinicName, Date createDate, Date updateDate, String email, String mobilePhone, String clinicAddress, String domainName, String clinicPhone, String actPlan, List<ClinicPlan> clinicPlans) {
 		this.ownerName = ownerName;
 		this.username = username;
 		this.clinicName = clinicName;
 		this.createDate = createDate;
 		this.updateDate = updateDate;
+		this.email = email;
 		this.mobilePhone = mobilePhone;
 		this.clinicAddress = clinicAddress;
+		this.domainName = domainName;
 		this.clinicPhone = clinicPhone;
 		this.actPlan = actPlan;
 		this.clinicPlans = clinicPlans;
@@ -151,6 +158,22 @@ public class Clinic
 
 	public void setClinicPlans(List<ClinicPlan> clinicPlans) {
 		this.clinicPlans = clinicPlans;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getDomainName() {
+		return domainName;
+	}
+
+	public void setDomainName(String domainName) {
+		this.domainName = domainName;
 	}
 
 

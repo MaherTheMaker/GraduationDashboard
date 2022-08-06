@@ -30,13 +30,13 @@ public class clinicAPI {
 
 
 
-
+    //Todo WebService
     @PostMapping("/requestForPlan")
     public ResponseEntity<PendingRequest> requestPlan(@RequestBody pendingRequestFrom form){
             return ResponseEntity.ok().body(clinicService.requestForPlan(form.getUsername(),form.getPlanName()));
     }
 
-
+    //Todo WebService
     @PostMapping("/getClinic/{username}")
     public ResponseEntity<Clinic> getPlan(@PathVariable String username){
        return ResponseEntity.ok().body(clinicService.getClinic(username));
