@@ -15,7 +15,7 @@ public class CodeGeneration {
    public static String GenerateApp(String ClinicName) throws IOException {
 
        Path path
-               = Paths.get("D:\\Another ITE Stuff\\P3\\Git\\32\\GraduationDashboard\\Servers\\"+ClinicName+"\\spring-boot-jwt-25-7\\src\\main\\resources\\application.properties");
+               = Paths.get("Servers\\"+ClinicName+"\\spring-boot-jwt-25-7\\src\\main\\resources\\application.properties");
 
 
         String app_prop = String.format("jwt.secret=javainuse\n" +
@@ -53,7 +53,7 @@ public class CodeGeneration {
     public static String GeneratePom(String ClinicName) throws IOException {
 
         Path path
-                = Paths.get("D:\\Another ITE Stuff\\P3\\Git\\32\\GraduationDashboard\\Servers\\"+ClinicName+"\\spring-boot-jwt-25-7\\pom.xml");
+                = Paths.get("Servers\\"+ClinicName+"\\spring-boot-jwt-25-7\\pom.xml");
 
 
         String app_prop = String.format("<project xmlns=\"http://maven.apache.org/POM/4.0.0\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd\">\n" +
@@ -141,10 +141,10 @@ public class CodeGeneration {
 
 
        Path path
-               = Paths.get("D:\\Another ITE Stuff\\P3\\Git\\32\\GraduationDashboard\\Servers\\"+clinic.getUsername()+"\\spring-boot-jwt-25-7\\src\\main\\resources\\data.sql");
+               = Paths.get("Servers\\"+clinic.getUsername()+"\\spring-boot-jwt-25-7\\src\\main\\resources\\data.sql");
 
-        String data_sql = String.format("INSERT IGNORE into  %1$s.clinic(owner_name,clinic_name,clinic_address,clinic_phone,mobile_phone,username) values (\"ammar\",\"Ammar's Clinic\",\"babtouma\",\"09828434\",\"543222\",\"ammar9821\")\n" +
-                        "INSERT IGNORE INTO  %1$s.user (address,email,full_name,number,password,role, username) VALUES ('babtouma', 'clinic98@gmail.com', 'ahmad kamel', '098867576', '$2a$10$tsytdt6Zl7NoWhlWFs.fyeKMyl/BUuBPoHiGh/.d/nwE/g92U.lFe', '1', 'ahm98');\n" +
+        String data_sql = String.format("INSERT IGNORE into  %1$s.clinic(owner_name,clinic_name,clinic_address,clinic_phone,mobile_phone,username,email) values (\"%2$s\",\"%3$s\",\"%4$s\",\"%5$s\",\"%6$s\",\"%1$s\",\"%7$s\")\n" +
+                        "INSERT IGNORE INTO  %1$s.user (address,email,full_name,number,password,role, username) VALUES ('%4$s', '%7$s', '%2$s', '%6$s', '$2a$10$RjBzgUbLdqKTMMvEjKTd9OuJxUoIuYr6FyDV6sFW7Tlh4pX412uXa', '3', '%1$s');\n" +
                         "\n" +
                         "\n" +
                         "--TODO change names\n" +
@@ -202,7 +202,7 @@ public class CodeGeneration {
                         "INSERT IGNORE INTO  %1$s.tooth (id, name, tooth_number, type) VALUES (NULL, 'lower', 'R', 'deciduous');\n" +
                         "INSERT IGNORE INTO  %1$s.tooth (id, name, tooth_number, type) VALUES (NULL, 'lower', 'S', 'deciduous');\n" +
                         "INSERT IGNORE INTO  %1$s.tooth (id, name, tooth_number, type) VALUES (NULL, 'lower', 'T', 'deciduous');"
-                , clinic.getUsername()
+                , clinic.getUsername() , clinic.getOwnerName() , clinic.getClinicName() , clinic.getClinicAddress() , clinic.getClinicPhone() , clinic.getMobilePhone(), clinic.getEmail()
 
         );
 

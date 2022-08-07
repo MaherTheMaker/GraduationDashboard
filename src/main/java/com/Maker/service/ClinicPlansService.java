@@ -4,6 +4,7 @@ import com.Maker.model.ClinicPlan;
 import com.Maker.model.Plan;
 import org.springframework.stereotype.Repository;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 
@@ -12,7 +13,7 @@ public interface ClinicPlansService {
 
     List<ClinicPlan> getAllClinicPlan();
     ClinicPlan addClinicPlan(ClinicPlan clinicPlan);
-    ClinicPlan confirmRequest (int id , boolean activate);
+    ClinicPlan confirmRequest (int id , boolean activate) throws IOException;
     List<ClinicPlan> getHistoryPlans(String username);
 
 

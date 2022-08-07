@@ -13,9 +13,9 @@ import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 
 	public class my_main {
-	public static void RunDeploy(String clinicname) throws IOException {
+	public static void RunDeploy(Clinic clinic) throws IOException {
 
-//		String clinicname="Leen2";
+		String clinicname= clinic.getUsername();
 		Path sourceDirectory = Paths.get("Servers/Template");
 		Path targetDirectory = Paths.get("Servers/"+clinicname);
 //        Files.copy(sourceDirectory, targetDirectory);
@@ -25,8 +25,7 @@ import java.nio.file.StandardCopyOption;
 
 		CodeGeneration.GenerateApp(clinicname);
 		CodeGeneration.GeneratePom(clinicname);
-		Clinic clinic=new Clinic();
-		clinic.setUsername(clinicname);
+//		clinic.setUsername(clinicname);
 		CodeGeneration.GenerateData(clinic);
 
 
@@ -65,6 +64,6 @@ import java.nio.file.StandardCopyOption;
 
 	}
 
-	 
+
 	
 }	

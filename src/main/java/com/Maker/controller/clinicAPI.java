@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import java.io.IOException;
 import java.net.URI;
 import java.util.List;
 
@@ -33,7 +34,8 @@ public class clinicAPI {
     //Todo WebService
     @PostMapping("/requestForPlan")
     public ResponseEntity<PendingRequest> requestPlan(@RequestBody pendingRequestFrom form){
-            return ResponseEntity.ok().body(clinicService.requestForPlan(form.getUsername(),form.getPlanName()));
+        System.out.println(form.getUsername() + form.getPlanId());
+            return ResponseEntity.ok().body(clinicService.requestForPlan(form.getUsername(),form.getPlanId()));
     }
 
     //Todo WebService
@@ -42,7 +44,15 @@ public class clinicAPI {
        return ResponseEntity.ok().body(clinicService.getClinic(username));
     }
 
+    @PostMapping("/editClinic/{username}")
+    public ResponseEntity<Clinic> editClinic(@PathVariable String username , @RequestBody Clinic clinic){
+        return ResponseEntity.ok().body(clinicService.editClinic(username, clinic));
+    }
 
+    @PostMapping("/CreateClinic")
+    public ResponseEntity<Clinic> addClinic(@RequestBody Clinic clinic) throws IOException {
+        return ResponseEntity.ok().body(clinicService.addClinic(clinic));
+    }
 
 }
 
@@ -51,7 +61,7 @@ public class clinicAPI {
 class pendingRequestFrom
 {
     private String username;
-    private String planName;
+    private int planId;
 }
 
 

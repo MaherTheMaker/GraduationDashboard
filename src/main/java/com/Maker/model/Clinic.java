@@ -3,6 +3,7 @@ package com.Maker.model;
 import java.util.*;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Clinic
@@ -12,18 +13,22 @@ public class Clinic
 	private int id;
 
 
-
+	private boolean isActive;
 	private String ownerName;
+
+
 
 	@Column(unique = true, length = 25)
 	private String username;
 	@Column(unique = false, length = 100)
 	private String clinicName;
 
+
 	private Date createDate;
 
 	private Date updateDate;
 
+	@NotNull
 	private String email;
 
 
@@ -41,10 +46,6 @@ public class Clinic
 	private String actPlan;
 
 
-
-
-
-
 	@OneToMany(mappedBy = "clinic", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<ClinicPlan> clinicPlans;
 
@@ -52,7 +53,8 @@ public class Clinic
 	{
 	}
 
-	public Clinic(String ownerName, String username, String clinicName, Date createDate, Date updateDate, String email, String mobilePhone, String clinicAddress, String domainName, String clinicPhone, String actPlan, List<ClinicPlan> clinicPlans) {
+	public Clinic(boolean isActive, String ownerName, String username, String clinicName, Date createDate, Date updateDate, String email, String mobilePhone, String clinicAddress, String domainName, String clinicPhone, String actPlan, List<ClinicPlan> clinicPlans) {
+		this.isActive = isActive;
 		this.ownerName = ownerName;
 		this.username = username;
 		this.clinicName = clinicName;
@@ -176,12 +178,14 @@ public class Clinic
 		this.domainName = domainName;
 	}
 
+	public boolean isActive() {
+		return isActive;
+	}
 
-//	public ClinicDomain getClinicDomain() {
-//		return clinicDomain;
-//	}
-//
-//	public void setClinicDomain(ClinicDomain clinicDomain) {
-//		this.clinicDomain = clinicDomain;
-//	}
+	public void setActive(boolean active) {
+		isActive = active;
+	}
+
+
+
 }

@@ -62,7 +62,7 @@ public class AdminAPI {
     }
 
     @PostMapping("/confirm/{id}/{activate}")
-    private ResponseEntity<ClinicPlan> confirmRequest (@PathVariable int id , @PathVariable boolean activate) {
+    private ResponseEntity<ClinicPlan> confirmRequest (@PathVariable int id , @PathVariable boolean activate) throws IOException {
         return ResponseEntity.ok().body(clinicPlansService.confirmRequest(id,activate));
     }
 
@@ -92,10 +92,6 @@ public class AdminAPI {
 
 
 
-    @PostMapping("/CreateClinic")
-    public ResponseEntity<Clinic> addClinic(@RequestBody Clinic clinic){
-        return ResponseEntity.ok().body(clinicService.addClinic(clinic));
-    }
 
 
 
@@ -104,20 +100,7 @@ public class AdminAPI {
         return ResponseEntity.ok().body(clinicService.getClinic(username));
     }
 
-//
-//    @GetMapping("/setDomainOfClinic")
-//    public ResponseEntity<Clinic> setDomain(@PathVariable String username,@RequestBody DomainName domainName)
-//    {
-//
-//       return ResponseEntity.ok().body(clinicService.SetDomainName(username,domainName.domainName));
-//
-//    }
 
-//    @GetMapping("/clinicDomain/{username}")
-//    public ResponseEntity<String> getDomain(@PathVariable String username){
-//
-//        return ResponseEntity.ok().body(clinicService.getClinic(username).getDomainName());
-//    }
 
 
     @GetMapping("/clinicPlansHistory/{username}")
@@ -127,7 +110,7 @@ public class AdminAPI {
 
     @GetMapping("/Deploy/{username}")
     public String Deploy(@PathVariable String username) throws IOException {
-        my_main.RunDeploy(username);
+//        my_main.RunDeploy(username);
         return "Done";
     }
 
