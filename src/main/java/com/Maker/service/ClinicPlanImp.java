@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -45,7 +46,7 @@ public class ClinicPlanImp implements ClinicPlansService {
 
 
     @Override
-    public ClinicPlan confirmRequest(int id, boolean activate) throws IOException {
+    public ClinicPlan confirmRequest(int id, boolean activate,int paymentId) throws IOException {
         PendingRequest pendingRequest = pendingRequestRepo.findById(id);
         if(activate){
             Clinic clinic = clinicRepo.findById(pendingRequest.getcId());
@@ -56,7 +57,7 @@ public class ClinicPlanImp implements ClinicPlansService {
             Plan plan = plansRepo.findById(pendingRequest.getpId());
             clinic.setActPlan(plan.getpName());
             pendingRequestRepo.deleteById(id);
-            return clinicPlanRepository.save(new ClinicPlan(clinic,plan,plan.getpName(),clinic.getClinicName(),null,0 ,null));
+            return clinicPlanRepository.save(new ClinicPlan(clinic,plan,plan.getpName(),clinic.getClinicName(),java.sql.Date.valueOf(LocalDate.now()),paymentId ,java.sql.Date.valueOf(LocalDate.now())));
         }
 
         else

@@ -143,65 +143,65 @@ public class CodeGeneration {
        Path path
                = Paths.get("Servers\\"+clinic.getUsername()+"\\spring-boot-jwt-25-7\\src\\main\\resources\\data.sql");
 
-        String data_sql = String.format("INSERT IGNORE into  %1$s.clinic(owner_name,clinic_name,clinic_address,clinic_phone,mobile_phone,username,email) values (\"%2$s\",\"%3$s\",\"%4$s\",\"%5$s\",\"%6$s\",\"%1$s\",\"%7$s\")\n" +
-                        "INSERT IGNORE INTO  %1$s.user (address,email,full_name,number,password,role, username) VALUES ('%4$s', '%7$s', '%2$s', '%6$s', '$2a$10$RjBzgUbLdqKTMMvEjKTd9OuJxUoIuYr6FyDV6sFW7Tlh4pX412uXa', '3', '%1$s');\n" +
+        String data_sql = String.format("INSERT IGNORE into  %1$s.clinic(owner_name,clinic_name,clinic_address,clinic_phone,mobile_phone,username,email) values (\"%2$s\",\"%3$s\",\"%4$s\",\"%5$s\",\"%6$s\",\"%1$s\",\"%7$s\");\n" +
+                        "INSERT IGNORE INTO  %1$s.user (address,email,full_name,number,password,role, username) VALUES ('%4$s', '%7$s', '%2$s', '%6$s', \"$2a$10$tsytdt6Zl7NoWhlWFs.fyeKMyl/BUuBPoHiGh/.d/nwE/g92U.lFe\", '2', '%1$s');\n" +
                         "\n" +
                         "\n" +
-                        "--TODO change names\n" +
-                        "INSERT IGNORE INTO  %1$s.tooth (id, name, tooth_number, type) VALUES (NULL, 'lower', '1', 'permanent');\n" +
-                        "INSERT IGNORE INTO  %1$s.tooth (id, name, tooth_number, type) VALUES (NULL, 'lower', '2', 'permanent');\n" +
-                        "INSERT IGNORE INTO  %1$s.tooth (id, name, tooth_number, type) VALUES (NULL, 'lower', '3', 'permanent');\n" +
-                        "INSERT IGNORE INTO  %1$s.tooth (id, name, tooth_number, type) VALUES (NULL, 'lower', '4', 'permanent');\n" +
-                        "INSERT IGNORE INTO  %1$s.tooth (id, name, tooth_number, type) VALUES (NULL, 'lower', '5', 'permanent');\n" +
-                        "INSERT IGNORE INTO  %1$s.tooth (id, name, tooth_number, type) VALUES (NULL, 'lower', '6', 'permanent');\n" +
-                        "INSERT IGNORE INTO  %1$s.tooth (id, name, tooth_number, type) VALUES (NULL, 'lower', '7', 'permanent');\n" +
-                        "INSERT IGNORE INTO  %1$s.tooth (id, name, tooth_number, type) VALUES (NULL, 'lower', '8', 'permanent');\n" +
-                        "INSERT IGNORE INTO  %1$s.tooth (id, name, tooth_number, type) VALUES (NULL, 'lower', '9', 'permanent');\n" +
-                        "INSERT IGNORE INTO  %1$s.tooth (id, name, tooth_number, type) VALUES (NULL, 'lower', '10', 'permanent');\n" +
-                        "INSERT IGNORE INTO  %1$s.tooth (id, name, tooth_number, type) VALUES (NULL, 'lower', '11', 'permanent');\n" +
-                        "INSERT IGNORE INTO  %1$s.tooth (id, name, tooth_number, type) VALUES (NULL, 'lower', '12', 'permanent');\n" +
-                        "INSERT IGNORE INTO  %1$s.tooth (id, name, tooth_number, type) VALUES (NULL, 'lower', '13', 'permanent');\n" +
-                        "INSERT IGNORE INTO  %1$s.tooth (id, name, tooth_number, type) VALUES (NULL, 'lower', '14', 'permanent');\n" +
-                        "INSERT IGNORE INTO  %1$s.tooth (id, name, tooth_number, type) VALUES (NULL, 'lower', '15', 'permanent');\n" +
-                        "INSERT IGNORE INTO  %1$s.tooth (id, name, tooth_number, type) VALUES (NULL, 'lower', '16', 'permanent');\n" +
-                        "INSERT IGNORE INTO  %1$s.tooth (id, name, tooth_number, type) VALUES (NULL, 'lower', '17', 'permanent');\n" +
-                        "INSERT IGNORE INTO  %1$s.tooth (id, name, tooth_number, type) VALUES (NULL, 'lower', '18', 'permanent');\n" +
-                        "INSERT IGNORE INTO  %1$s.tooth (id, name, tooth_number, type) VALUES (NULL, 'lower', '19', 'permanent');\n" +
-                        "INSERT IGNORE INTO  %1$s.tooth (id, name, tooth_number, type) VALUES (NULL, 'lower', '20', 'permanent');\n" +
-                        "INSERT IGNORE INTO  %1$s.tooth (id, name, tooth_number, type) VALUES (NULL, 'lower', '21', 'permanent');\n" +
-                        "INSERT IGNORE INTO  %1$s.tooth (id, name, tooth_number, type) VALUES (NULL, 'lower', '22', 'permanent');\n" +
-                        "INSERT IGNORE INTO  %1$s.tooth (id, name, tooth_number, type) VALUES (NULL, 'lower', '23', 'permanent');\n" +
-                        "INSERT IGNORE INTO  %1$s.tooth (id, name, tooth_number, type) VALUES (NULL, 'lower', '24', 'permanent');\n" +
-                        "INSERT IGNORE INTO  %1$s.tooth (id, name, tooth_number, type) VALUES (NULL, 'lower', '25', 'permanent');\n" +
-                        "INSERT IGNORE INTO  %1$s.tooth (id, name, tooth_number, type) VALUES (NULL, 'lower', '26', 'permanent');\n" +
-                        "INSERT IGNORE INTO  %1$s.tooth (id, name, tooth_number, type) VALUES (NULL, 'lower', '27', 'permanent');\n" +
-                        "INSERT IGNORE INTO  %1$s.tooth (id, name, tooth_number, type) VALUES (NULL, 'lower', '28', 'permanent');\n" +
-                        "INSERT IGNORE INTO  %1$s.tooth (id, name, tooth_number, type) VALUES (NULL, 'lower', '29', 'permanent');\n" +
-                        "INSERT IGNORE INTO  %1$s.tooth (id, name, tooth_number, type) VALUES (NULL, 'lower', '30', 'permanent');\n" +
-                        "INSERT IGNORE INTO  %1$s.tooth (id, name, tooth_number, type) VALUES (NULL, 'lower', '31', 'permanent');\n" +
-                        "INSERT IGNORE INTO  %1$s.tooth (id, name, tooth_number, type) VALUES (NULL, 'lower', '32', 'permanent');\n" +
+                        "INSERT IGNORE INTO %1$s.tooth (id, name, tooth_number, type) VALUES (NULL, 'Third molar', '1', 'permanent');\n" +
+                        "INSERT IGNORE INTO %1$s.tooth (id, name, tooth_number, type) VALUES (NULL, 'Second molar', '2', 'permanent');\n" +
+                        "INSERT IGNORE INTO %1$s.tooth (id, name, tooth_number, type) VALUES (NULL, 'First molar', '3', 'permanent');\n" +
+                        "INSERT IGNORE INTO %1$s.tooth (id, name, tooth_number, type) VALUES (NULL, 'Second Premolar', '4', 'permanent');\n" +
+                        "INSERT IGNORE INTO %1$s.tooth (id, name, tooth_number, type) VALUES (NULL, 'First Premolar', '5', 'permanent');\n" +
+                        "INSERT IGNORE INTO %1$s.tooth (id, name, tooth_number, type) VALUES (NULL, 'Canine', '6', 'permanent');\n" +
+                        "INSERT IGNORE INTO %1$s.tooth (id, name, tooth_number, type) VALUES (NULL, 'Lateral incisor', '7', 'permanent');\n" +
+                        "INSERT IGNORE INTO %1$s.tooth (id, name, tooth_number, type) VALUES (NULL, 'Central incisor', '8', 'permanent');\n" +
+                        "INSERT IGNORE INTO %1$s.tooth (id, name, tooth_number, type) VALUES (NULL, 'Central incisor', '9', 'permanent');\n" +
+                        "INSERT IGNORE INTO %1$s.tooth (id, name, tooth_number, type) VALUES (NULL, 'Lateral incisor', '10', 'permanent');\n" +
+                        "INSERT IGNORE INTO %1$s.tooth (id, name, tooth_number, type) VALUES (NULL, 'Canine', '11', 'permanent');\n" +
+                        "INSERT IGNORE INTO %1$s.tooth (id, name, tooth_number, type) VALUES (NULL, 'First Premolar', '12', 'permanent');\n" +
+                        "INSERT IGNORE INTO %1$s.tooth (id, name, tooth_number, type) VALUES (NULL, 'Second Premolar', '13', 'permanent');\n" +
+                        "INSERT IGNORE INTO %1$s.tooth (id, name, tooth_number, type) VALUES (NULL, 'First molar', '14', 'permanent');\n" +
+                        "INSERT IGNORE INTO %1$s.tooth (id, name, tooth_number, type) VALUES (NULL, 'Second molar', '15', 'permanent');\n" +
+                        "INSERT IGNORE INTO %1$s.tooth (id, name, tooth_number, type) VALUES (NULL, 'Third molar', '16', 'permanent');\n" +
+                        "INSERT IGNORE INTO %1$s.tooth (id, name, tooth_number, type) VALUES (NULL, 'Third molar', '17', 'permanent');\n" +
+                        "INSERT IGNORE INTO %1$s.tooth (id, name, tooth_number, type) VALUES (NULL, 'Second molar', '18', 'permanent');\n" +
+                        "INSERT IGNORE INTO %1$s.tooth (id, name, tooth_number, type) VALUES (NULL, 'First molar', '19', 'permanent');\n" +
+                        "INSERT IGNORE INTO %1$s.tooth (id, name, tooth_number, type) VALUES (NULL, 'Second Premolar', '20', 'permanent');\n" +
+                        "INSERT IGNORE INTO %1$s.tooth (id, name, tooth_number, type) VALUES (NULL, 'First Premolar', '21', 'permanent');\n" +
+                        "INSERT IGNORE INTO %1$s.tooth (id, name, tooth_number, type) VALUES (NULL, 'Canine', '22', 'permanent');\n" +
+                        "INSERT IGNORE INTO %1$s.tooth (id, name, tooth_number, type) VALUES (NULL, 'Lateral incisor', '23', 'permanent');\n" +
+                        "INSERT IGNORE INTO %1$s.tooth (id, name, tooth_number, type) VALUES (NULL, 'Central incisor', '24', 'permanent');\n" +
+                        "INSERT IGNORE INTO %1$s.tooth (id, name, tooth_number, type) VALUES (NULL, 'Central incisor', '25', 'permanent');\n" +
+                        "INSERT IGNORE INTO %1$s.tooth (id, name, tooth_number, type) VALUES (NULL, 'Lateral incisor', '26', 'permanent');\n" +
+                        "INSERT IGNORE INTO %1$s.tooth (id, name, tooth_number, type) VALUES (NULL, 'Canine', '27', 'permanent');\n" +
+                        "INSERT IGNORE INTO %1$s.tooth (id, name, tooth_number, type) VALUES (NULL, 'First Premolar', '28', 'permanent');\n" +
+                        "INSERT IGNORE INTO %1$s.tooth (id, name, tooth_number, type) VALUES (NULL, 'Second Premolar', '29', 'permanent');\n" +
+                        "INSERT IGNORE INTO %1$s.tooth (id, name, tooth_number, type) VALUES (NULL, 'First molar', '30', 'permanent');\n" +
+                        "INSERT IGNORE INTO %1$s.tooth (id, name, tooth_number, type) VALUES (NULL, 'Second molar', '31', 'permanent');\n" +
+                        "INSERT IGNORE INTO %1$s.tooth (id, name, tooth_number, type) VALUES (NULL, 'Third molar', '32', 'permanent');\n" +
                         "\n" +
                         "\n" +
-                        "INSERT IGNORE INTO  %1$s.tooth (id, name, tooth_number, type) VALUES (NULL, 'lower', 'A', 'deciduous');\n" +
-                        "INSERT IGNORE INTO  %1$s.tooth (id, name, tooth_number, type) VALUES (NULL, 'lower', 'B', 'deciduous');\n" +
-                        "INSERT IGNORE INTO  %1$s.tooth (id, name, tooth_number, type) VALUES (NULL, 'lower', 'C', 'deciduous');\n" +
-                        "INSERT IGNORE INTO  %1$s.tooth (id, name, tooth_number, type) VALUES (NULL, 'lower', 'D', 'deciduous');\n" +
-                        "INSERT IGNORE INTO  %1$s.tooth (id, name, tooth_number, type) VALUES (NULL, 'lower', 'E', 'deciduous');\n" +
-                        "INSERT IGNORE INTO  %1$s.tooth (id, name, tooth_number, type) VALUES (NULL, 'lower', 'F', 'deciduous');\n" +
-                        "INSERT IGNORE INTO  %1$s.tooth (id, name, tooth_number, type) VALUES (NULL, 'lower', 'G', 'deciduous');\n" +
-                        "INSERT IGNORE INTO  %1$s.tooth (id, name, tooth_number, type) VALUES (NULL, 'lower', 'H', 'deciduous');\n" +
-                        "INSERT IGNORE INTO  %1$s.tooth (id, name, tooth_number, type) VALUES (NULL, 'lower', 'I', 'deciduous');\n" +
-                        "INSERT IGNORE INTO  %1$s.tooth (id, name, tooth_number, type) VALUES (NULL, 'lower', 'J', 'deciduous');\n" +
-                        "INSERT IGNORE INTO  %1$s.tooth (id, name, tooth_number, type) VALUES (NULL, 'lower', 'K', 'deciduous');\n" +
-                        "INSERT IGNORE INTO  %1$s.tooth (id, name, tooth_number, type) VALUES (NULL, 'lower', 'L', 'deciduous');\n" +
-                        "INSERT IGNORE INTO  %1$s.tooth (id, name, tooth_number, type) VALUES (NULL, 'lower', 'M', 'deciduous');\n" +
-                        "INSERT IGNORE INTO  %1$s.tooth (id, name, tooth_number, type) VALUES (NULL, 'lower', 'N', 'deciduous');\n" +
-                        "INSERT IGNORE INTO  %1$s.tooth (id, name, tooth_number, type) VALUES (NULL, 'lower', 'O', 'deciduous');\n" +
-                        "INSERT IGNORE INTO  %1$s.tooth (id, name, tooth_number, type) VALUES (NULL, 'lower', 'P', 'deciduous');\n" +
-                        "INSERT IGNORE INTO  %1$s.tooth (id, name, tooth_number, type) VALUES (NULL, 'lower', 'Q', 'deciduous');\n" +
-                        "INSERT IGNORE INTO  %1$s.tooth (id, name, tooth_number, type) VALUES (NULL, 'lower', 'R', 'deciduous');\n" +
-                        "INSERT IGNORE INTO  %1$s.tooth (id, name, tooth_number, type) VALUES (NULL, 'lower', 'S', 'deciduous');\n" +
-                        "INSERT IGNORE INTO  %1$s.tooth (id, name, tooth_number, type) VALUES (NULL, 'lower', 'T', 'deciduous');"
+                        "\n" +
+                        "INSERT IGNORE INTO %1$s.tooth (id, name, tooth_number, type) VALUES (NULL, 'Second molar', 'A', 'deciduous');\n" +
+                        "INSERT IGNORE INTO %1$s.tooth (id, name, tooth_number, type) VALUES (NULL, 'First molar', 'B', 'deciduous');\n" +
+                        "INSERT IGNORE INTO %1$s.tooth (id, name, tooth_number, type) VALUES (NULL, 'Canine', 'C', 'deciduous');\n" +
+                        "INSERT IGNORE INTO %1$s.tooth (id, name, tooth_number, type) VALUES (NULL, 'Lateral incisor', 'D', 'deciduous');\n" +
+                        "INSERT IGNORE INTO %1$s.tooth (id, name, tooth_number, type) VALUES (NULL, 'Central incisor', 'E', 'deciduous');\n" +
+                        "INSERT IGNORE INTO %1$s.tooth (id, name, tooth_number, type) VALUES (NULL, 'Central incisor', 'F', 'deciduous');\n" +
+                        "INSERT IGNORE INTO %1$s.tooth (id, name, tooth_number, type) VALUES (NULL, 'Lateral incisor', 'G', 'deciduous');\n" +
+                        "INSERT IGNORE INTO %1$s.tooth (id, name, tooth_number, type) VALUES (NULL, 'Canine', 'H', 'deciduous');\n" +
+                        "INSERT IGNORE INTO %1$s.tooth (id, name, tooth_number, type) VALUES (NULL, 'First molar', 'I', 'deciduous');\n" +
+                        "INSERT IGNORE INTO %1$s.tooth (id, name, tooth_number, type) VALUES (NULL, 'Second molar', 'J', 'deciduous');\n" +
+                        "INSERT IGNORE INTO %1$s.tooth (id, name, tooth_number, type) VALUES (NULL, 'Second molar', 'K', 'deciduous');\n" +
+                        "INSERT IGNORE INTO %1$s.tooth (id, name, tooth_number, type) VALUES (NULL, 'First molar', 'L', 'deciduous');\n" +
+                        "INSERT IGNORE INTO %1$s.tooth (id, name, tooth_number, type) VALUES (NULL, 'Canine', 'M', 'deciduous');\n" +
+                        "INSERT IGNORE INTO %1$s.tooth (id, name, tooth_number, type) VALUES (NULL, 'Lateral incisor', 'N', 'deciduous');\n" +
+                        "INSERT IGNORE INTO %1$s.tooth (id, name, tooth_number, type) VALUES (NULL, 'Central incisor', 'O', 'deciduous');\n" +
+                        "INSERT IGNORE INTO %1$s.tooth (id, name, tooth_number, type) VALUES (NULL, 'Central incisor', 'P', 'deciduous');\n" +
+                        "INSERT IGNORE INTO %1$s.tooth (id, name, tooth_number, type) VALUES (NULL, 'Lateral incisor', 'Q', 'deciduous');\n" +
+                        "INSERT IGNORE INTO %1$s.tooth (id, name, tooth_number, type) VALUES (NULL, 'Canine', 'R', 'deciduous');\n" +
+                        "INSERT IGNORE INTO %1$s.tooth (id, name, tooth_number, type) VALUES (NULL, 'First molar', 'S', 'deciduous');\n" +
+                        "INSERT IGNORE INTO %1$s.tooth (id, name, tooth_number, type) VALUES (NULL, 'Second molar', 'T', 'deciduous');"
                 , clinic.getUsername() , clinic.getOwnerName() , clinic.getClinicName() , clinic.getClinicAddress() , clinic.getClinicPhone() , clinic.getMobilePhone(), clinic.getEmail()
 
         );

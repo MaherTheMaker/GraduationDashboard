@@ -61,9 +61,10 @@ public class AdminAPI {
         return ResponseEntity.ok().body(pendingRequestRepo.findAll());
     }
 
-    @PostMapping("/confirm/{id}/{activate}")
-    private ResponseEntity<ClinicPlan> confirmRequest (@PathVariable int id , @PathVariable boolean activate) throws IOException {
-        return ResponseEntity.ok().body(clinicPlansService.confirmRequest(id,activate));
+    @PostMapping("/confirm/{id}/{activate}/{paymentId}")
+    private ResponseEntity<ClinicPlan> confirmRequest (@PathVariable int id , @PathVariable boolean activate , @PathVariable int paymentId) throws IOException {
+
+        return ResponseEntity.ok().body(clinicPlansService.confirmRequest(id,activate,paymentId));
     }
 
 

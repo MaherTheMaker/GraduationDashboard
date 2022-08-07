@@ -28,7 +28,7 @@ public class Clinic
 
 	private Date updateDate;
 
-	@NotNull
+	@Column(length = 200,nullable = false)
 	private String email;
 
 

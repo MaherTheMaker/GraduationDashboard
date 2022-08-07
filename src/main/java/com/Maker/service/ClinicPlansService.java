@@ -13,7 +13,7 @@ public interface ClinicPlansService {
 
     List<ClinicPlan> getAllClinicPlan();
     ClinicPlan addClinicPlan(ClinicPlan clinicPlan);
-    ClinicPlan confirmRequest (int id , boolean activate) throws IOException;
+    ClinicPlan confirmRequest (int id , boolean activate,int paymentId) throws IOException;
     List<ClinicPlan> getHistoryPlans(String username);
 
 
